@@ -1,0 +1,16 @@
+name: Send Daily Prompt
+
+on:
+  schedule:
+    - cron: '0 2 * * *'
+
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+    - name: curl
+      uses: wei/curl@v1.1.1
+      with:
+        args: https://gratitudejournalapp.azurewebsites.net/api/SendPrompt

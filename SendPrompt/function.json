@@ -1,18 +1,11 @@
 {
   "bindings": [
     {
+      "name": "SendPrompt",
       "authLevel": "anonymous",
-      "type": "httpTrigger",
+      "type": "timerTrigger",
       "direction": "in",
-      "name": "req",
-      "methods": [
-        "get"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
+      "schedule": "30 9 * * * *"
     }
   ],
   "scriptFile": "../dist/SendPrompt/index.js"

@@ -5,7 +5,7 @@
       "authLevel": "anonymous",
       "type": "timerTrigger",
       "direction": "in",
-      "schedule": "30 9 * * * *"
+      "schedule": "35 4 * * * *"
     }
   ],
   "scriptFile": "../dist/SendPrompt/index.js"

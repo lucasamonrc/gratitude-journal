@@ -28,7 +28,7 @@ You should be able to start a local development instance by pressing "F5", or by
 
 ## 🔌 How it works
 
-These app defines two cloud functions, `SendPrompt` and `ReceiveMessage`.
+This app defines two cloud functions, `SendPrompt` and `ReceiveMessage`.
 
 1. `SendPrompt` is triggered on a cron schedule, it uses Twilio's SDK to programmatically send a text message to my personal number.
 

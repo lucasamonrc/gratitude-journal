@@ -28,9 +28,9 @@ You should be able to start a local development instance by pressing "F5", or by
 
 ## 🔌 How it works
 
-These app defines two cloud functions, `SendPrompt` (Funtion A) and `ReceiveMessage` (Webhook).
+These app defines two cloud functions, `SendPrompt` and `ReceiveMessage`.
 
-1. Function A is triggered on a cron schedule, it uses Twilio's SDK to programmatically send a text message to my personal number.
+1. `SendPrompt` is triggered on a cron schedule, it uses Twilio's SDK to programmatically send a text message to my personal number.
 
 ```mermaid
 graph TD;
@@ -40,7 +40,7 @@ graph TD;
   sms --> user;
 ```
 
-2. When I receive the SMS sent by Function A, I am able to reply back with my daily response. Twilio will receive that SMS reply and then will call the Webhook and pass to it the contents of my SMS message. The Webhook then process its body, and saves it to a SQL Database deployed to Azure using Prisma ORM. Finally, the Webhook then sends a response back to Twilio confirming that my responses were saved. Twilio repasses this message as another SMS to me.
+2. When I receive the SMS sent by `SendPrompt`, I am able to reply back with my daily response. Twilio will receive the SMS reply and then will call `ReceiveMessage` through a webhook, passing to it the contents of the SMS message. `ReceiveMessage` then process the contents and saves it to a SQL Database deployed to Azure using Prisma ORM. Finally, it then sends a response back to Twilio confirming that my responses were saved. Twilio repasses this message as another SMS to me.
 
 ```mermaid
 graph TD;
